@@ -1,10 +1,11 @@
-package misc;
+package ch01;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class LengthToStringList {
     public static void main(String[] args) {
-        List<String> strings = Arrays.asList("Biggest","at","ate","I","apple","ball","cat","rhino","serries");
+        List<String> strings = Arrays.asList("Biggest","at","ate","I","apple","ball","cat","rhino","series");
 
         Map<Integer, List<String>> lengthMap = new HashMap<>();
 
@@ -24,5 +25,12 @@ public class LengthToStringList {
         }
 
         System.out.println(lengthMap);
+
+        //SAme solution with java 8
+        Map<Integer, List<String>> res = strings.stream()
+                .collect(Collectors.groupingBy(String::length));
+
+        System.out.println(res);
+
     }
 }
