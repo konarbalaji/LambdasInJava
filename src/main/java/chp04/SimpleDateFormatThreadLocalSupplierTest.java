@@ -10,7 +10,8 @@ import java.util.concurrent.Executors;
 //Thread local using Supplier
 public class SimpleDateFormatThreadLocalSupplierTest {
 
-    public final static ThreadLocal<DateFormat> formatter = ThreadLocal.withInitial(() -> new SimpleDateFormat("yyyy-MM-dd"));
+    public final static ThreadLocal<DateFormat> formatter = ThreadLocal
+                                                            .withInitial(() -> new SimpleDateFormat("yyyy-MM-dd"));
 
     public static void main(String[] args) {
         String date = "2020-09-09";
@@ -36,5 +37,4 @@ public class SimpleDateFormatThreadLocalSupplierTest {
         Date d = formatter.get().parse(date);
         System.out.println("Print with Thread : " + Thread.currentThread() + " : " + d);
     }
-
 }

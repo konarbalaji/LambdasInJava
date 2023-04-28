@@ -36,7 +36,6 @@ public class ThreadLocalBeforeJava8Test {
     }
 }
 
-
 class ThreadLocalBeforeJava8{
 
     private static final ThreadLocal<DateFormat> dateFormatter = new ThreadLocal<DateFormat>(){
