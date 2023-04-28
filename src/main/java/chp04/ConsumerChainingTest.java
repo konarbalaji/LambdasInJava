@@ -1,5 +1,7 @@
 package chp04;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.function.Consumer;
 
 public class ConsumerChainingTest {
@@ -14,6 +16,10 @@ public class ConsumerChainingTest {
 
         Consumer<Response> r = kafka.andThen(db).andThen(email);
         r.accept(res);
+
+        List<String> str = new ArrayList<>();
+        str.add("a");
+
 
     }
 
