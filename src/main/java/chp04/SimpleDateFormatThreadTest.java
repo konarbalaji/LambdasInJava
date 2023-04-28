@@ -17,7 +17,7 @@ public class SimpleDateFormatThreadTest {
 
         Runnable task = () -> parseDate(date);
 
-        for(int i=0;i<100;i++){
+        for(int i=0;i<10;i++){
             executorService.submit(task);
         }
 
@@ -28,7 +28,7 @@ public class SimpleDateFormatThreadTest {
 
         try{
             Date date = simpleDateFormat.parse(dateToParse);
-            System.out.println("Successfully Parsed Date : " + date);
+            System.out.println("Successfully Parsed Date : using Thread " +  Thread.currentThread() + date);
         }catch(ParseException e){
             System.out.println("ParseError " + e.getMessage());
         }
