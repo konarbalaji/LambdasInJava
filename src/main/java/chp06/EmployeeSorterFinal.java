@@ -23,4 +23,19 @@ public class EmployeeSorterFinal {
 
     public static final Comparator<Employee> BY_DESC_EXP_THEN_NAME =
             BY_EXPERIENCE.reversed().thenComparing(BY_NAME_ALPHA);
+
+    //Using Method Reference
+
+    public static final Comparator<Employee> BY_NAME_ALPHA_MR =
+            comparing(Employee::getName);
+
+    //Comparator for sorting employee by experience
+    public static final Comparator<Employee> BY_EXPERIENCE_MR =
+            comparingInt(Employee::getExperience);
+
+    public static final Comparator<Employee> BY_ASC_EXP_THEN_NAME_MR =
+            BY_EXPERIENCE_MR.thenComparing(BY_NAME_ALPHA_MR);
+
+    public static final Comparator<Employee> BY_DESC_EXP_THEN_NAME_MR =
+            BY_EXPERIENCE_MR.reversed().thenComparing(BY_NAME_ALPHA_MR);
 }
