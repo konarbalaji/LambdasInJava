@@ -12,6 +12,7 @@ public class EmployeeSorterUsual {
             return e1.getName().compareTo(e2.getName());
         }
     };
+
     public static final Comparator<? super Employee> BY_ASC_EXP_THEN_NAME = new Comparator<Employee>() {
         @Override
         public int compare(Employee e1, Employee e2) {
@@ -21,6 +22,7 @@ public class EmployeeSorterUsual {
             return (e1.getExperience() < e2.getExperience()) ? -1 : 1;
         }
     };
+
     public static final Comparator<? super Employee> BY_DESC_EXP_THEN_NAME = new Comparator<Employee>() {
         @Override
         public int compare(Employee e1, Employee e2) {

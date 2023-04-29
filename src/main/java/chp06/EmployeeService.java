@@ -27,19 +27,25 @@ public class EmployeeService {
     //Retrieve a list of employees that are sorted alphabetically by name
     public List<Employee> sortByName() {
         List<Employee> employees = EmployeeUtil.initialize();
-        Collections.sort(employees, EmployeeSorterUsual.byNameAlphabetically);
+        //Collections.sort(employees, EmployeeSorterUsual.byNameAlphabetically);
+        //Collections.sort(employees, EmployeeSorterLambda.byNameAlphabetically);
+        employees.sort(EmployeeSorterLambda.byNameAlphabetically);
         return employees;
     }
 
     public List<Employee> sortByInreasingExpAndThenName() {
         List<Employee> employees = EmployeeUtil.initialize();
-        Collections.sort(employees,EmployeeSorterUsual.BY_ASC_EXP_THEN_NAME);
+        //Collections.sort(employees,EmployeeSorterUsual.BY_ASC_EXP_THEN_NAME);
+        //Collections.sort(employees,EmployeeSorterLambda.BY_ASC_EXP_THEN_NAME);
+        employees.sort(EmployeeSorterLambda.BY_ASC_EXP_THEN_NAME);
         return employees;
     }
 
     public List<Employee> sortByDecreasingExpAndThenName() {
         List<Employee> employees = EmployeeUtil.initialize();
-        Collections.sort(employees, EmployeeSorterUsual.BY_DESC_EXP_THEN_NAME);
+        //Collections.sort(employees, EmployeeSorterUsual.BY_DESC_EXP_THEN_NAME);
+        //Collections.sort(employees, EmployeeSorterLambda.BY_DESC_EXP_THEN_NAME);
+        employees.sort(EmployeeSorterLambda.BY_DESC_EXP_THEN_NAME);
         return employees;
     }
 }
