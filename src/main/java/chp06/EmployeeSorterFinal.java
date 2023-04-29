@@ -6,21 +6,16 @@ import java.util.Comparator;
 
 public class EmployeeSorterFinal {
 
-    public static final Comparator<Employee> byNameAlphabetically = (e1, e2) -> {
-            return e1.getName().compareTo(e2.getName());
-    };
+    //keyextractor - field that is used to sort objects.
+    //comparing - pass me the field that i can use to compare objects.
+    public static final Comparator<Employee> BY_NAME_ALPHA =
+            Comparator.comparing((Employee e) -> e.getName());
 
-    public static final Comparator<? super Employee> BY_ASC_EXP_THEN_NAME = (e1, e2) -> {
-            if(e1.getExperience() == e2.getExperience()){
-                return e1.getName().compareTo(e2.getName());
-            }
-            return (e1.getExperience() < e2.getExperience()) ? -1 : 1;
-    };
+    public static final Comparator<Employee> BY_ASC_EXP_THEN_NAME =
+            Comparator.comparing((Employee e) -> e.getExperience()).
+                    thenComparing(BY_NAME_ALPHA);
 
-    public static final Comparator<? super Employee> BY_DESC_EXP_THEN_NAME = (e1, e2) -> {
-            if(e1.getExperience() == e2.getExperience()){
-                return e1.getName().compareTo(e2.getName());
-            }
-            return (e1.getExperience() < e2.getExperience()) ? 1 : -1;
-    };
+    public static final Comparator<Employee> BY_DESC_EXP_THEN_NAME =
+            Comparator.comparing((Employee e) -> e.getExperience()).reversed()
+                    .thenComparing(BY_NAME_ALPHA);
 }

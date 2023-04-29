@@ -16,9 +16,9 @@ public class EmployeeComparatorTest {
         testSortByDecreasingExperienceAndThenName();
     }
 
-    private static void testSortByDecreasingExperienceAndThenName() {
-        System.out.println("Sort with decreasing experience and if same experience, then alphabetically");
-        System.out.println(employeeService.sortByDecreasingExpAndThenName());
+    private static void testSortByName() {
+        System.out.println("Sorting by name alphabetically : ");
+        System.out.println(employeeService.sortByName());
     }
 
     private static void testSortByIncreasingExperienceAndThenName() {
@@ -26,8 +26,8 @@ public class EmployeeComparatorTest {
         System.out.println(employeeService.sortByInreasingExpAndThenName());
     }
 
-    private static void testSortByName() {
-        System.out.println("Sorting by name alphabetically : ");
-        System.out.println(employeeService.sortByName());
+    private static void testSortByDecreasingExperienceAndThenName() {
+        System.out.println("Sort with decreasing experience and if same experience, then alphabetically");
+        System.out.println(employeeService.sortByDecreasingExpAndThenName());
     }
 }

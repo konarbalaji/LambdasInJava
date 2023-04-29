@@ -3,10 +3,8 @@ package chp06;
 import chp06.employee.Employee;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.function.Predicate;
-import java.util.stream.Collectors;
 
 public class EmployeeService {
 
@@ -23,13 +21,13 @@ public class EmployeeService {
         return filteredEmployee;
     }
 
-
     //Retrieve a list of employees that are sorted alphabetically by name
     public List<Employee> sortByName() {
         List<Employee> employees = EmployeeUtil.initialize();
         //Collections.sort(employees, EmployeeSorterUsual.byNameAlphabetically);
         //Collections.sort(employees, EmployeeSorterLambda.byNameAlphabetically);
-        employees.sort(EmployeeSorterLambda.byNameAlphabetically);
+        //employees.sort(EmployeeSorterLambda.byNameAlphabetically);
+        employees.sort(EmployeeSorterFinal.BY_NAME_ALPHA);
         return employees;
     }
 
@@ -37,7 +35,8 @@ public class EmployeeService {
         List<Employee> employees = EmployeeUtil.initialize();
         //Collections.sort(employees,EmployeeSorterUsual.BY_ASC_EXP_THEN_NAME);
         //Collections.sort(employees,EmployeeSorterLambda.BY_ASC_EXP_THEN_NAME);
-        employees.sort(EmployeeSorterLambda.BY_ASC_EXP_THEN_NAME);
+        //employees.sort(EmployeeSorterLambda.byIncrExpAndNme);
+        employees.sort(EmployeeSorterFinal.BY_ASC_EXP_THEN_NAME);
         return employees;
     }
 
@@ -45,7 +44,8 @@ public class EmployeeService {
         List<Employee> employees = EmployeeUtil.initialize();
         //Collections.sort(employees, EmployeeSorterUsual.BY_DESC_EXP_THEN_NAME);
         //Collections.sort(employees, EmployeeSorterLambda.BY_DESC_EXP_THEN_NAME);
-        employees.sort(EmployeeSorterLambda.BY_DESC_EXP_THEN_NAME);
+        //employees.sort(EmployeeSorterLambda.byDescExpAndName);
+        employees.sort(EmployeeSorterFinal.BY_DESC_EXP_THEN_NAME);
         return employees;
     }
 }
