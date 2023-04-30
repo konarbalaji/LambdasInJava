@@ -1,11 +1,12 @@
-package chp06;
+package streams.chp07;
 
+import chp06.EmployeeSorterFinal;
+import chp06.EmployeeUtil;
 import chp06.employee.Employee;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
-import java.util.stream.Collectors;
 
 public class EmployeeService {
 
@@ -48,12 +49,5 @@ public class EmployeeService {
         //employees.sort(EmployeeSorterLambda.byDescExpAndName);
         employees.sort(EmployeeSorterFinal.BY_DESC_EXP_THEN_NAME);
         return employees;
-    }
-
-    public List<Employee> getEmployeesFilteredByImperative(Predicate<Employee> seniorProfFilter) {
-        List<Employee> employees = EmployeeUtil.initialize();
-        return  employees.stream()
-                .filter(seniorProfFilter)
-                .collect(Collectors.toList());
     }
 }
