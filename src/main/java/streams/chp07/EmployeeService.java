@@ -1,9 +1,6 @@
 package streams.chp07;
 
-import chp06.EmployeeSorterFinal;
-import chp06.EmployeeUtil;
-import chp06.employee.Employee;
-import chp06.employee.Skill;
+import lambdas.chp06.EmployeeSorterFinal;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -32,7 +29,7 @@ public class EmployeeService {
         //Collections.sort(employees, EmployeeSorterUsual.byNameAlphabetically);
         //Collections.sort(employees, EmployeeSorterLambda.byNameAlphabetically);
         //employees.sort(EmployeeSorterLambda.byNameAlphabetically);
-        employees.sort(EmployeeSorterFinal.BY_NAME_ALPHA);
+        employees.sort(EmployeeSorter.BY_NAME_ALPHA);
         return employees;
     }
 
@@ -41,7 +38,7 @@ public class EmployeeService {
         //Collections.sort(employees,EmployeeSorterUsual.BY_ASC_EXP_THEN_NAME);
         //Collections.sort(employees,EmployeeSorterLambda.BY_ASC_EXP_THEN_NAME);
         //employees.sort(EmployeeSorterLambda.byIncrExpAndNme);
-        employees.sort(EmployeeSorterFinal.BY_ASC_EXP_THEN_NAME);
+        employees.sort(EmployeeSorter.BY_ASC_EXP_THEN_NAME);
         return employees;
     }
 
@@ -50,7 +47,7 @@ public class EmployeeService {
         //Collections.sort(employees, EmployeeSorterUsual.BY_DESC_EXP_THEN_NAME);
         //Collections.sort(employees, EmployeeSorterLambda.BY_DESC_EXP_THEN_NAME);
         //employees.sort(EmployeeSorterLambda.byDescExpAndName);
-        employees.sort(EmployeeSorterFinal.BY_DESC_EXP_THEN_NAME);
+        employees.sort(EmployeeSorter.BY_DESC_EXP_THEN_NAME);
         return employees;
     }
 

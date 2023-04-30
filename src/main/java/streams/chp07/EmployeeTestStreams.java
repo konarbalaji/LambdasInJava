@@ -1,8 +1,6 @@
 package streams.chp07;
 
-
-import chp06.employee.Employee;
-import chp06.employee.Skill;
+import lambdas.employee.Skill;
 
 import java.util.List;
 import java.util.function.Predicate;
