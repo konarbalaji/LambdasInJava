@@ -6,6 +6,7 @@ import chp06.employee.Employee;
 import chp06.employee.Skill;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
@@ -69,5 +70,36 @@ public class EmployeeService {
                 .filter(filter)
                 .map(e->e.getName())
                 .collect(Collectors.toList());
+    }
+
+    public List<String> getEmployeesWithMultipleSkillsImperative() {
+        List<Employee> employees = EmployeeUtil.initialize();
+
+        List<Employee> moreThanOneSkill = new ArrayList<>();
+        for(Employee e : employees){
+            if(e.getSkills().size()>1){
+                moreThanOneSkill.add(e);
+            }
+        }
+
+        Collections.sort(moreThanOneSkill,EmployeeSorter.BY_EXPERIENCE);
+        List<String> names = new ArrayList<>();
+        for(Employee e : moreThanOneSkill){
+            names.add(e.getName());
+        }
+
+        return names;
+
+    }
+
+    public List<String> getEmployeeNamesWithMultipleSkillsStreams() {
+        List<Employee> employees = EmployeeUtil.initialize();
+
+        return employees.stream()
+                        .filter(e -> e.getSkills().size()>1)
+                        .sorted(EmployeeSorter.BY_EXPERIENCE)
+                        .map(Employee::getName)
+                        .collect(Collectors.toList());
+
     }
 }

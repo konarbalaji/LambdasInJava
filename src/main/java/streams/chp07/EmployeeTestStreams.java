@@ -14,13 +14,31 @@ public class EmployeeTestStreams {
     public static void main(String[] args) {
 
         //Employee with experience > 10 years
-        System.out.println("Simple usage of stream, filter, collect");
+        System.out.println("============> Simple usage of stream, filter, collect");
         seniorEmployeeUsingStreams();
         System.out.println(seniorEmployeeUsingStreams());
 
         //map example - get employee name with AngularJS skills.
-        System.out.println("Example of map function");
+        System.out.println("============> Example of map function");
         System.out.println(employeenamesWithAngularJsSkills(Skill.ANGULARJS));
+
+        //Employee names with multiple skills - sorted by old exp - old way
+        System.out.println("============> Sorting using imperative style");
+        namesWithMultipleSkillsSortedOldWay();
+
+        //Employee names with multiple skills - sorted by exp - streams
+        System.out.println("Sorting using declarative style");
+        namesWithMultipleSkillsSortedStreams();
+    }
+
+    private static void namesWithMultipleSkillsSortedStreams() {
+        List<String> namesWithSkillsStreams = employeeService.getEmployeeNamesWithMultipleSkillsStreams();
+        System.out.println(namesWithSkillsStreams);
+    }
+
+    private static void namesWithMultipleSkillsSortedOldWay() {
+        List<String> namesWithSkills = employeeService.getEmployeesWithMultipleSkillsImperative();
+        System.out.println(namesWithSkills);
     }
 
     private static List<Employee> seniorEmployeeUsingStreams() {
