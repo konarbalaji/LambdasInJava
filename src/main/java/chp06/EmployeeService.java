@@ -50,10 +50,5 @@ public class EmployeeService {
         return employees;
     }
 
-    public List<Employee> getEmployeesFilteredByImperative(Predicate<Employee> seniorProfFilter) {
-        List<Employee> employees = EmployeeUtil.initialize();
-        return  employees.stream()
-                .filter(seniorProfFilter)
-                .collect(Collectors.toList());
-    }
+
 }
