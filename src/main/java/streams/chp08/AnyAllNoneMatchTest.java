@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.function.Predicate;
 
@@ -23,14 +24,17 @@ public class AnyAllNoneMatchTest {
         List<Transaction> transactions = getTransactions();
         BigDecimal oneMillion = BigDecimal.valueOf(1000000);
 
-
         Predicate<Transaction> highValue = (tr) -> tr.getValue().compareTo(oneMillion)>0;
         boolean taxAnalysis = transactions.stream().allMatch(highValue);
 
-        System.out.println(" taxAnalysis : " + taxAnalysis);
+        System.out.println("TaxAnalysis : " + taxAnalysis);
 
         //Process list of names where none are blank
-
+        List<String> validNames = Arrays.asList("amit","ben","clark"," ","emily");
+        boolean allValidNames = validNames.stream().noneMatch(String::isBlank);
+        boolean allValidNamesAgain = !validNames.stream().anyMatch(String::isBlank);
+        System.out.println("allValidNames : " + allValidNames);
+        System.out.println("allValidNamesAgain : " + allValidNamesAgain);
 
     }
 
@@ -79,6 +83,7 @@ class Transaction{
 }
 
 class Order{
+
     private int id;
     private LocalDate placed;
 
