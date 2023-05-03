@@ -1,10 +1,12 @@
 package streams.chp07;
 
 import lambdas.chp06.EmployeeSorterFinal;
+import lambdas.employee.Skill;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
@@ -74,7 +76,7 @@ public class EmployeeService {
 
         List<Employee> moreThanOneSkill = new ArrayList<>();
         for(Employee e : employees){
-            if(e.getSkills().size()>1){
+            if(null != e.getSkills() && e.getSkills().size()>1){
                 moreThanOneSkill.add(e);
             }
         }
@@ -93,10 +95,24 @@ public class EmployeeService {
         List<Employee> employees = EmployeeUtil.initialize();
 
         return employees.stream()
-                        .filter(e -> e.getSkills().size()>1)
+                        //.filter(e -> Objects.nonNull(e.getSkills()))
+                        .filter(e -> Objects.nonNull(e.getSkills()) && e.getSkills().size()>1)
                         .sorted(EmployeeSorter.BY_EXPERIENCE)
                         .map(Employee::getName)
                         .collect(Collectors.toList());
+
+    }
+
+    public List<String> getUniqueUnitNamesWithJavaSkill() {
+        List<Employee> emp = EmployeeUtil.initialize();
+
+        List<String> distinctUnitNames = emp.stream()
+                                            .filter(e -> e.getSkills().contains(Skill.JAVA))
+                                            .map(e -> e.getUnit().getUnitName())
+                                            .distinct()
+                                            .collect(Collectors.toList());
+
+        return distinctUnitNames;
 
     }
 }
