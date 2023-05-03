@@ -4,13 +4,14 @@ import streams.chp07.EmployeeUtil;
 import streams.chp07.Employee;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 public class FindFirstSample {
 
     public static void main(String[] args) {
 
-        int id = 5;
+        int id = 500;
         System.out.println("Employee with ID : " + id + " is " + findEmployeeNameById(id));
         System.out.println("Employee with ID : " + id + " is " + findEmployeeNameByIdElse(id));
 
@@ -35,6 +36,7 @@ public class FindFirstSample {
                         .findFirst()
                         .map(e -> e.getName())
                         .orElse("UNKNOWN");
+                        //.orElseThrow(() -> new NoSuchElementException("Could not find employee with ID : " + id));
 
     }
 }
