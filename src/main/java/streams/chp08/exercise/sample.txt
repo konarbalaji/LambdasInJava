@@ -1,0 +1,5 @@
+#I am#
+#learning#
+#lambdas and streams#
+#today#
+tets
