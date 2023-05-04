@@ -26,7 +26,22 @@ public class DictionaryReduction {
         //Total number of characters in dictionary
         sumTotalCharacters();
 
+        //total number of words starting from legtter z
+        totalNumberOfWordsStartingFromLetterZ();
 
+
+    }
+
+    private static void totalNumberOfWordsStartingFromLetterZ() throws IOException {
+
+        try(Stream<String> lines = Files.lines(Paths.get(FILE_PATH))){
+
+            long tot = lines.filter(line -> line.startsWith("z"))
+                                .count();
+
+            System.out.println("NUmber of words starting form Z is : " + tot);
+
+        }
     }
 
     private static void sumTotalCharacters() throws IOException {
