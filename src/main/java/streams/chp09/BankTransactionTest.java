@@ -30,7 +30,6 @@ public class BankTransactionTest {
         System.out.println(minTransaction.map(BankTransaction::getAccNumber)
                 .orElse("No Transaction done on : " + when));
 
-
     }
 
     private static Optional<BankTransaction> getSmallestTransaction(LocalDate when) {
