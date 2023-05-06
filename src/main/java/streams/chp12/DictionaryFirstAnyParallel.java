@@ -32,6 +32,5 @@ public class DictionaryFirstAnyParallel {
 
             System.out.println(anyLargeWords.orElse("No word starting from " + firstLetter + " found "));
         }
-
     }
 }
